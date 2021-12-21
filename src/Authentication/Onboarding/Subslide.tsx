@@ -1,12 +1,14 @@
 import React from "react";
-import { View, StyleSheet, Text, Button } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
+import { Button } from "../../components";
+
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     padding: 44,
+    flex: 1,
   },
   subtitle: {
     fontFamily: "SFProText-Semibold",
@@ -25,14 +27,16 @@ const styles = StyleSheet.create({
   },
 })
 
-interface SubslideProps {
+interface SubSlideProps {
   subtitle: string;
   description: string;
   last?: boolean;
   onPress: () => void;
+  // label: string;
+  // variant: string;
 }
 
-const Subslide = ({subtitle, description, last, onPress}: SubslideProps) => {
+const Subslide = ({subtitle, description, last, onPress}: SubSlideProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.subtitle}>{subtitle}</Text>

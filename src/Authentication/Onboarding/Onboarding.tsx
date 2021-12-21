@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
-import { View, StyleSheet, Dimensions } from "react-native";
-import { useValue, onScrollEvent, interpolateColor } from "react-native-redash";
-import Animated, { multiply } from "react-native-reanimated";
+import { View, StyleSheet, Dimensions, Text } from "react-native";
+import { useValue, onScrollEvent, interpolateColor, useScrollHandler } from "react-native-redash";
+import Animated, { divide, multiply } from "react-native-reanimated";
 
 import Slide, {SLIDE_HEIGHT} from "./Slide";
-import Subslide from "./Subslide";
+import SubSlide from "./SubSlide";
+import Dot from "./Dot";
 
 const BORDER_RADIUS = 75;
 const { width } = Dimensions.get("window");
@@ -22,10 +23,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   footerContent: { 
+    flex: 1,
     flexDirection: "row",
     backgroundColor:"white", 
     borderTopLeftRadius: BORDER_RADIUS,
   },
+  pagination: {
+    ...StyleSheet.absoluteFillObject,
+    width,
+    height: BORDER_RADIUS,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  }
 });
 
 const slides = [
@@ -57,9 +67,7 @@ const slides = [
 
 const OnBoarding = () => {
   const scroll = useRef<Animated.ScrollView>(null);
-  const x = useValue(0);
-  // TODO: scrollHandler useScrollHandler?
-  const onScroll = onScrollEvent({ x });
+  const { scrollHandler, x } = useScrollHandler();
   const backgroundColor = interpolateColor(x, {
     inputRange: slides.map((_, i) => i * width),
     outputRange: slides.map(slide => slide.color),
@@ -75,8 +83,7 @@ const OnBoarding = () => {
           decelerationRate="fast" 
           showsHorizontalScrollIndicator={false} 
           bounces={false}
-          scrollEventThrottle={1}
-          {...{onScroll}}
+          {...scrollHandler}
         >
           {slides.map(({title}, index) => (
             <Slide key={index} right={!!(index % 2)} {...{title}}/>
@@ -85,11 +92,26 @@ const OnBoarding = () => {
       </Animated.View>
       <View style={styles.footer}>
         <Animated.View style={{...StyleSheet.absoluteFillObject, backgroundColor}} />
-        <Animated.View style={[styles.footerContent, 
-                    { width: width*slides.length, flex: 1, transform: [{translateX: multiply(x, -1) }] },
-                    ]}>
+        <Animated.View style={[
+          styles.footerContent,
+          { 
+            // width: width*slides.length, 
+            flex: 1, 
+            transform: [{translateX: multiply(x, -1) }] 
+          },
+          ]}>
+
+          <View style={styles.pagination}>
+            {slides.map((_, index) => (
+              <Dot key={index} 
+              currentIndex={divide(x, width)} 
+              {...{index}} 
+            />
+            ))}
+          </View>
+
           {slides.map(({subtitle, description}, index) => (
-            <Subslide 
+            <SubSlide 
               key={index} 
               onPress={() => {
                 if(scroll.current) {
