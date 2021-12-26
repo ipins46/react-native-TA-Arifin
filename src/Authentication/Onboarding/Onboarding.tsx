@@ -1,11 +1,12 @@
 import React, { useRef } from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
-import { interpolateColor } from "react-native-redash";
+// import { interpolateColor } from "react-native-redash";
 import Animated, {
   useAnimatedScrollHandler,
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
+  interpolateColor
 } from "react-native-reanimated";
 
 import Slide, { SLIDE_HEIGHT } from "./Slide";
