@@ -24,7 +24,7 @@ export default function App() {
     <ThemeProvider>
       <LoadAssets {...{ fonts, assets }}>
         <SafeAreaProvider>
-          <AppStack.Navigator headerMode="none">
+          <AppStack.Navigator screenOptions={{headerShown: false}}>
             <AppStack.Screen name="Authentication" component={AuthenticationNavigator} />
             <AppStack.Screen name="Home" component={HomeNavigator} />
           </AppStack.Navigator>

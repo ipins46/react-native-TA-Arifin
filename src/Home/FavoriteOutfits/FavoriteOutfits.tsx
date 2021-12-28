@@ -2,7 +2,8 @@ import React, { useState, useRef} from 'react';
 import { Dimensions, ScrollView } from 'react-native';
 import { Transitioning, Transition, TransitioningView } from 'react-native-reanimated';
 
-import { Box, Header, useTheme } from '../../components';
+import { Box, useTheme } from '../../components';
+import Header from '../../components/Header';
 import { HomeNavigationProps } from '../../components/Navigation';
 
 import Outfit from './Outfit';

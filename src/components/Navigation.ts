@@ -37,3 +37,5 @@ export type HomeRoutes = {
   Settings: undefined;
   Cart: undefined;
 };
+
+export type HomeScreenProp = DrawerNavigationProp<HomeRoutes, keyof HomeRoutes>;

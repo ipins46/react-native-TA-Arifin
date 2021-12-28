@@ -2,7 +2,8 @@ import React, { useState } from "react";
 // import { sub } from "react-native-reanimated";
 import { useTiming } from "react-native-redash";
 
-import { Box, Header } from "../../components";
+import { Box } from "../../components";
+import Header from "../../components/Header";
 import { HomeNavigationProps } from "../../components/Navigation";
 import Background from "./Background";
 import Categories from "./Categories";

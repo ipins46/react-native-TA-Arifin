@@ -1,7 +1,8 @@
 import React from "react";
-import { Image, ScrollView, StyleSheet, Dimensions } from "react-native";
-import { Box, Header, Text, makeStyles, ScrollableContent } from "../../components";
-import { He}
+import { ScrollView, StyleSheet, Dimensions } from "react-native";
+import { Box, Text, makeStyles } from "../../components";
+import ScrollableContent from "../../components/ScrollableContent";
+import Header from "../../components/Header";
 import { HomeNavigationProps } from "../../components/Navigation";
 import { Theme } from "../../components/Theme";
 import Graph, { DataPoint } from "./Graph";

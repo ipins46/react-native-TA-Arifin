@@ -29,7 +29,7 @@ const Container = ({ children, footer, pattern }: ContainerProps) => {
     <KeyboardAwareScrollView scrollEnabled={false}>
       <Box height={wHeight + (Platform.OS === "android" ? Constants.statusBarHeight : 0)} backgroundColor="secondary">
         <Box backgroundColor="background">
-          <Box borderBottomLeftRadius="xl" overflow="hidden" height={height * 0.61 }> 
+          <Box overflow="hidden" height={height * 0.61 }> 
             <Image 
               source={asset} 
               style={{ width, height, borderBottomLeftRadius: theme.borderRadii.xl }}

@@ -2,8 +2,10 @@ import React from 'react';
 import { Dimensions, Image } from 'react-native';
 import { useNavigation, DrawerActions, CommonActions } from '@react-navigation/native';
 
-import { Box, Header, Text, useTheme } from '../../components';
+import { Box, Text, useTheme } from '../../components';
+import Header from '../../components/Header';
 import DrawerItem, { DrawerItemProps } from './DrawerItem';
+import { HomeScreenProp } from '../../components/Navigation';
 
 export const assets = [require("./assets/drawer.png")];
 const { width } = Dimensions.get('window');
@@ -18,7 +20,7 @@ const items: DrawerItemProps[] = [
   { icon: "clock", label: "Transaction History", screen: "TransactionHistory", color: "drawer3" },
   { icon: "settings", label: "Notification Settings", screen: "Settings", color: "drawer4" },
   { icon: "log-out", label: "Logout", 
-    onPress: (navigation) => navigation.dispatch(CommonActions.reset({
+    onPress: (navigation: any) => navigation.dispatch(CommonActions.reset({
       index: 0,
       routes: [{ name: 'Authentication' }]
     })), color: "secondary"
@@ -27,7 +29,7 @@ const items: DrawerItemProps[] = [
 
 const Drawer = () => {
   const theme = useTheme();
-  const navigation = useNavigation();
+  const navigation = useNavigation<HomeScreenProp>();
 
   return (
     <Box flex={1}>

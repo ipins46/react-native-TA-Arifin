@@ -14,7 +14,7 @@ export const assets = [...welcomeAssets];
 const AuthenticationStack = createStackNavigator<AuthRoutes>();
 export const AuthenticationNavigator = () => {
   return (
-    <AuthenticationStack.Navigator headerMode="none">
+    <AuthenticationStack.Navigator screenOptions={{headerShown: false}}>
       <AuthenticationStack.Screen name="Onboarding" component={Onboarding} />
       <AuthenticationStack.Screen name="Welcome" component={Welcome} />
       <AuthenticationStack.Screen name="Login" component={Login} />
