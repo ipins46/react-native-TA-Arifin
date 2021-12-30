@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Dimensions, ScrollView, StyleSheet } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
-import { Box, Text } from "../../components";
-import Header from "../../components/Header";
+import { Box, Header, Text } from "../../components";
 import { HomeNavigationProps } from "../../components/Navigation";
 import { aspectRatio, useTheme } from "../../components/Theme";
 import CartContainer from "./CartContainer";

@@ -75,8 +75,8 @@ const Drawer = () => {
             height={100}
           />
           <Box marginVertical="m">
-            <Text variant="title1" textAlign="center">Mike Peter</Text>
-            <Text variant="body" textAlign="center">mike@fashionvista.com</Text>
+            <Text variant="title1" textAlign="center">Muhamad Arifin</Text>
+            <Text variant="body" textAlign="center">admin@admin.com</Text>
           </Box>
           {items.map(item => <DrawerItem key={item.icon} {...item} />)}
         </Box>

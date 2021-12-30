@@ -2,17 +2,17 @@ import React, { useState } from "react";
 // import { sub } from "react-native-reanimated";
 import { useTiming } from "react-native-redash";
 
-import { Box } from "../../components";
-import Header from "../../components/Header";
+import { Box, Header } from "../../components";
+// import Header from "../../components/Header";
 import { HomeNavigationProps } from "../../components/Navigation";
 import Background from "./Background";
 import Categories from "./Categories";
 import Card from "./Card";
 
 const cards = [
-  { index: 3, source: require("../../Authentication/assets/5.png") },
-  { index: 2, source: require("../../Authentication/assets/5.png") },
-  { index: 1, source: require("../../Authentication/assets/5.png") },
+  { index: 3, source: require("../../Authentication/assets/2.png") },
+  { index: 2, source: require("../../Authentication/assets/3.png") },
+  { index: 1, source: require("../../Authentication/assets/4.png") },
   { index: 0, source: require("../../Authentication/assets/5.png") },
 ];
 
