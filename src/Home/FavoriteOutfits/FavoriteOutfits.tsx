@@ -9,8 +9,9 @@ import { HomeNavigationProps } from '../../components/Navigation';
 import Outfit from './Outfit';
 import TopCurve from './TopCurve';
 import Footer from './Footer';
+// import { backgroundColor } from '@shopify/restyle';
 
-const { width: wWidth } = Dimensions.get('window');
+const { width: Width } = Dimensions.get('window');
 
 const defaultOutfits = [
   { id: 0, color: "#BFEAF5", aspectRatio: 1, selected: false },
@@ -33,7 +34,7 @@ const FavoriteOutfits = ({ navigation }: HomeNavigationProps<'FavoriteOutfits'>)
   const list = useRef<TransitioningView>(null);
   const [outfits, setOutfits] = useState(defaultOutfits);
   const theme = useTheme();
-  const width = (wWidth - theme.spacing.m * 3) / 2;
+  const width = (Width - theme.spacing.m * 3) / 2;
   const [footerHeight, setFooterHeight] = useState(0);
 
   return (

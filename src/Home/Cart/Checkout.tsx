@@ -28,8 +28,8 @@ const LineItem = ({ label, value }: LineItemProps) => {
         </Text>
       </Box>
       <Box>
-        <Text color="primary" variant="title3">
-          ${value}
+        <Text color="bawah51" variant="title3">
+          Rp.{value}
         </Text>
       </Box>
     </Box>
@@ -40,7 +40,7 @@ const Checkout = ({ minHeight }: CheckoutProps) => {
   const [selectedCard, setSelectedCard] = useState(cards[0].id);
 
   return (
-    <Box flex={1} backgroundColor="secondary" style={{ paddingTop: minHeight }}>
+    <Box flex={1} backgroundColor="bawah5" style={{ paddingTop: minHeight }}>
       <Box flex={1} padding="m">
         <Box height={CARD_HEIGHT}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -68,9 +68,9 @@ const Checkout = ({ minHeight }: CheckoutProps) => {
               <Text color="background">Change</Text>
             </Box>
           </Box>
-          <LineItem label="Total Items (6)" value={189.94} />
-          <LineItem label="Standard Delivery" value={12.00} />
-          <LineItem label="Total Payment" value={201.84} />
+          <LineItem label="Total Items (6)" value={116.997} />
+          <LineItem label="Standard Delivery" value={3.002} />
+          <LineItem label="Total Payment" value={119.999} />
         </Box>
         <Box
           paddingVertical="m"
@@ -79,8 +79,8 @@ const Checkout = ({ minHeight }: CheckoutProps) => {
           justifyContent="flex-end"
         >
           <Button
-            label="Swipe to Pay $201.84"
-            variant="primary"
+            label="Swipe to Rp.119.999"
+            variant="tombol"
             onPress={() => true}
           />
         </Box>

@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 });
 
 interface ButtonProps {
-  variant: "default" | "primary";
+  variant: "default" | "tombol";
   label?: string;
   onPress: () => void;
   style?: RectButtonProperties["style"];
@@ -23,8 +23,8 @@ interface ButtonProps {
 const Button = ({ variant, label, onPress, style }: ButtonProps) => {
   const { colors } = useTheme();
   const backgroundColor =
-    variant === "primary" ? colors.primary : colors.background2;
-  const color = variant === "primary" ? colors.background : colors.secondary;
+    variant === "tombol" ? colors.tombol : colors.primary;
+  const color = variant === "tombol" ? colors.bawah3 : colors.background;
 
   return (
     <RectButton

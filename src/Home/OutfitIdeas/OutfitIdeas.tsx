@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useTiming } from "react-native-redash";
 
 import { Box, Header } from "../../components";
-// import Header from "../../components/Header";
 import { HomeNavigationProps } from "../../components/Navigation";
 import Background from "./Background";
 import Categories from "./Categories";

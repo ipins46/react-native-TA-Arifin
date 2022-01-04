@@ -18,7 +18,7 @@ interface CartContainerProps {
 
 const { width } = Dimensions.get("window");
 const aspectRatio = width / 375;
-const height = 582 * aspectRatio;
+const height = 682 * aspectRatio;
 const minHeight = 228 * aspectRatio;
 const snapPoints = [-(height - minHeight), 0];
 
@@ -72,7 +72,7 @@ const CartContainer = ({ children, CheckoutComponent }: CartContainerProps) => {
               bottom: 0,
               left: 0,
               right: 0,
-              height: theme.borderRadii.xl,
+              height: theme.borderRadii.s,
               justifyContent: "flex-end",
               alignItems: "center",
             }}

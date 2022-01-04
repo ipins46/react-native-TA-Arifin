@@ -16,7 +16,10 @@ const Drawer = createDrawerNavigator<HomeRoutes>();
 export const HomeNavigator = () => (
   <Drawer.Navigator
     drawerContent={() => <DrawerContent />}
-    drawerStyle={{ width: DRAWER_WIDTH }}
+    screenOptions={{
+        drawerStyle: { width: DRAWER_WIDTH },       
+          headerShown: false
+      }}
   >
     <Drawer.Screen name="OutfitIdeas" component={OutfitIdeas} />
     <Drawer.Screen name="FavoriteOutfits" component={FavoriteOutfits} />

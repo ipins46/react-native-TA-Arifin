@@ -11,9 +11,9 @@ const Footer = ({ label, onPress }: FooterProps) => {
   const insets = useSafeAreaInsets();
   
   return (
-    <Box backgroundColor="secondary" padding="m" borderTopLeftRadius="xl">
+    <Box backgroundColor="bawah5" padding="m">
       <Box alignItems="center" style={{ paddingBottom: insets.bottom }}>
-        <Button variant="primary" {...{ label, onPress }} />
+        <Button variant="tombol" {...{ label, onPress }} />
       </Box>
     </Box>
   )

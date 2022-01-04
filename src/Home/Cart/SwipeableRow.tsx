@@ -2,6 +2,7 @@ import React, { useCallback, ReactNode } from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 import { PanGestureHandler } from "react-native-gesture-handler";
 import Animated, {
+  runOnJS,
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
@@ -53,7 +54,9 @@ const SwipeableRow = ({
         },
         () => {
           if (dest === finalDestination) {
-            height.value = withTiming(0, { duration: 250 }, () => deleteItem());
+            height.value = withTiming(0, { duration: 250 }, () => {
+              runOnJS(deleteItem)()
+            });
           }
         }
       );

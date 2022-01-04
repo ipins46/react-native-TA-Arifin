@@ -23,9 +23,15 @@ const items: DrawerItemProps[] = [
     onPress: (navigation: any) => navigation.dispatch(CommonActions.reset({
       index: 0,
       routes: [{ name: 'Authentication' }]
-    })), color: "secondary"
+    })), color: "secondary", 
   },
 ]
+
+const picture = {
+  src: require('./assets/wolf.png'),
+  width: 510,
+  height: 600,
+}
 
 const Drawer = () => {
   const theme = useTheme();
@@ -40,8 +46,9 @@ const Drawer = () => {
           left={0} 
           right={0} 
           bottom={0} 
-          borderBottomRightRadius="xl"
-          backgroundColor="secondary"
+          // borderBottomLeftRadius="xl"
+          // borderBottomRightRadius="xl"
+          backgroundColor="bawah4"
         >
           <Header 
             title="Menu"
@@ -52,7 +59,7 @@ const Drawer = () => {
         </Box>
       </Box>
       <Box flex={0.8}>
-        <Box flex={1} backgroundColor="secondary"/>
+        <Box flex={1} backgroundColor="bawah4" />
         <Box 
           position="absolute" 
           top={0} 
@@ -60,22 +67,34 @@ const Drawer = () => {
           right={0} 
           bottom={0} 
           borderTopLeftRadius="xl"
+          borderTopRightRadius="xl"
           borderBottomRightRadius="xl"
+          borderBottomLeftRadius="xl"
           backgroundColor="background"
           justifyContent="center"
           padding="xl"
         >
           <Box 
             position="absolute" 
-            left={DRAWER_WIDTH / 2 - 50} 
+            left={DRAWER_WIDTH / 2 - 45} 
             top={-50} 
-            backgroundColor="primary"
+            backgroundColor="bawah5"
             style={{ borderRadius: 50 }}
-            width={100}
-            height={100}
+            width={90}
+            height={90}
+          >
+            <Image 
+            source={picture.src}
+            style={{ 
+              width: width - theme.borderRadii.xxl, 
+              height: ((width - theme.borderRadii.xxl) * picture.height) / picture.width,
+              top: 5,
+              left: 10,
+            }}
           />
+          </Box>
           <Box marginVertical="m">
-            <Text variant="title1" textAlign="center">Muhamad Arifin</Text>
+            <Text marginTop="l" variant="title1" textAlign="center">Muhamad Arifin</Text>
             <Text variant="body" textAlign="center">admin@admin.com</Text>
           </Box>
           {items.map(item => <DrawerItem key={item.icon} {...item} />)}
@@ -86,13 +105,14 @@ const Drawer = () => {
         width={DRAWER_WIDTH} 
         overflow="hidden"
         height={height * 0.61} 
+        right={0}
       >
         <Image 
           source={assets[0]}
           style={{ 
             width: DRAWER_WIDTH, 
             height, 
-            borderTopLeftRadius: theme.borderRadii.xl
+            borderTopLeftRadius: theme.borderRadii.l
           }}
         />
       </Box>
