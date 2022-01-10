@@ -11,6 +11,11 @@ import {
 const { width } = Dimensions.get("window");
 export const aspectRatio = width / 374;
 
+// const appDims = {
+//   boundary: 20,
+// };
+// export { appDims };
+
 export const palette = {
   white: "#FFFFFF",
   cyan: "#2CB9B0",
@@ -110,6 +115,9 @@ const theme = createTheme({
   breakpoints: {
     phone: 0,
     tablet: 768,
+  },
+  AppDims: {
+    boundary: 20,
   },
 });
 

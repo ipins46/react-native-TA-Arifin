@@ -14,11 +14,12 @@ const aspectRatio = 769 / 1531;
 const height = DRAWER_WIDTH * aspectRatio;
 
 const items: DrawerItemProps[] = [
-  { icon: "zap", label: "Outfit Ideas", screen: "OutfitIdeas", color: "primary" },
-  { icon: "heart", label: "Favorite Outfits", screen: "FavoriteOutfits", color: "drawer1" },
+  // { icon: "home", label: "fashion shopping", screen: "HomeItems", color: "primary" },
+  { icon: "home", label: "Outfit Ideas", screen: "OutfitIdeas", color: "primary" },
+  { icon: "heart", label: "Favorite Me", screen: "FavoriteOutfits", color: "drawer1" },
   { icon: "user", label: "Edit Profile", screen: "EditProfile", color: "drawer2" },
   { icon: "clock", label: "Transaction History", screen: "TransactionHistory", color: "drawer3" },
-  { icon: "settings", label: "Notification Settings", screen: "Settings", color: "drawer4" },
+  { icon: "settings", label: "Settings", screen: "Settings", color: "drawer4" },
   { icon: "log-out", label: "Logout", 
     onPress: (navigation: any) => navigation.dispatch(CommonActions.reset({
       index: 0,
@@ -53,7 +54,7 @@ const Drawer = () => {
           <Header 
             title="Menu"
             left={{ icon: 'x', onPress: () => navigation.dispatch(DrawerActions.closeDrawer()) }}
-            right={{ icon: 'shopping-bag', onPress: () => navigation.navigate("Cart") }}
+            right={{ icon: 'shopping-cart', onPress: () => navigation.navigate("Cart") }}
             dark
           />
         </Box>

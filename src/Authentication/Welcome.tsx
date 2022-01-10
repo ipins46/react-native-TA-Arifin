@@ -6,9 +6,9 @@ import { AuthNavigationProps } from '../components/Navigation';
 
 const { width } = Dimensions.get('window');
 const picture = {
-  src: require('./assets/5.png'),
-  width: 408,
-  height: 612
+  src: require('./assets/sale.png'),
+  width: 400,
+  height: 600
 }
 
 export const assets = [picture.src];
@@ -17,7 +17,7 @@ const Welcome = ({ navigation }: AuthNavigationProps<"Welcome">) => {
   const theme = useTheme();
   
   return (
-    <Box flex={1} backgroundColor="background">
+    <Box flex={1} backgroundColor="bawah5">
       <Box 
         flex={1} 
         borderBottomRightRadius="xl" 
@@ -29,7 +29,8 @@ const Welcome = ({ navigation }: AuthNavigationProps<"Welcome">) => {
         source={picture.src}
         style={{ 
           width: width - theme.borderRadii.xl, 
-          height: ((width - theme.borderRadii.xl) * picture.height) / picture.width
+          height: ((width - theme.borderRadii.xl) * picture.height) / picture.width,
+          top: 30
         }}
       />
       </Box>
@@ -44,29 +45,30 @@ const Welcome = ({ navigation }: AuthNavigationProps<"Welcome">) => {
         />
         <Box 
           flex={1} 
-          backgroundColor="background" 
+          backgroundColor="bawah5" 
           borderTopLeftRadius="xl" 
           justifyContent="space-evenly" 
           alignItems="center"
           padding="xl"
         >
-          <Text variant="title2">Let's get started</Text>
-          <Text variant="body" textAlign="center">
+          <Text variant="title2" color="background">Let's get started</Text>
+          <Text variant="body" color="background" textAlign="center">
               Login to your account below or signup for an amazing experience
           </Text>
           <Button 
-            variant="primary" 
+            variant="tombol" 
             label="Have an account? Login" 
             onPress={() => navigation.navigate("Login")}
           />
           <Button 
+            variant="tombol"
             label="Join us, it's Free" 
             onPress={() => navigation.navigate("SignUp")}
           />
           <BorderlessButton 
             onPress={() => navigation.navigate("ForgotPassword")}
           >
-            <Text variant="button" color="secondary">Forgot password?</Text>
+            <Text variant="button" color="background">Forgot password?</Text>
           </BorderlessButton>
         </Box>
       </Box>

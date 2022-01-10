@@ -31,11 +31,11 @@ interface SubSlideProps {
 const SubSlide = ({ subtitle, description, last, onPress }: SubSlideProps) => {
   return (
     <View style={styles.container}>
-      <Text variant="title2" style={styles.subtitle}>{subtitle}</Text>
-      <Text variant="body" style={styles.description}>{description}</Text>
+      <Text variant="title2" color="background" style={styles.subtitle}>{subtitle}</Text>
+      <Text variant="body" color="background" style={styles.description}>{description}</Text>
       <Button 
         label={last ? "Let's get started" : "Next"} 
-        variant={last ? "primary" : "default"}
+        variant={last ? "tombol" : "tombol"}
         {...{ onPress }}
       />
     </View>

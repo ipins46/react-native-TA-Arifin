@@ -20,7 +20,7 @@ const { width } = Dimensions.get("window");
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.bawah5,
   },
   slider: {
     height: SLIDE_HEIGHT,
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   footerContent: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.bawah5,
     borderTopLeftRadius: theme.borderRadii.xl,
   },
   pagination: {
@@ -67,11 +67,11 @@ export const slides: Slide[] = [
     title: "Relaxed",
     subtitle: "Find Your Outfits",
     description: "Confused about your outfit? Don't worry! Find the best outfit here!",
-    color: "#BFEAF5",
+    color: "#FFE4D9",
     picture: {
-      src: require("../assets/1.png"),
+      src: require("../assets/a.png"),
       width: 2738,
-      height: 3244,
+      height: 3644,
     },
   },
   {
@@ -80,20 +80,20 @@ export const slides: Slide[] = [
     description: "Hating the clothes in your wardrobe? Explore hundreds of outfits ideas",
     color: "#BEECC4",
     picture: {
-      src: require("../assets/2.png"),
+      src: require("../assets/b.png"),
       width: 2738,
-      height: 3244,
+      height: 3644,
     },
   },
   {
     title: "Eccentric",
     subtitle: "Your Style, Your Way",
     description: "Create your individual & unique style and look amazing everyday",
-    color: "#FFE4D9",
+    color: "#BFEAF5",
     picture: {
-      src: require("../assets/3.png"),
+      src: require("../assets/d.png"),
       width: 2738,
-      height: 3244,
+      height: 3684,
     },
   },
   {
@@ -102,9 +102,9 @@ export const slides: Slide[] = [
     description: "Discover the latest trends in fashion and explore your personality",
     color: "#FFDDDD",
     picture: {
-      src: require("../assets/4.png"),
+      src: require("../assets/c.png"),
       width: 2738,
-      height: 3244,
+      height: 3684,
     },
   },
 ];
@@ -141,22 +141,22 @@ const Onboarding = ({ navigation }: AuthNavigationProps<"Onboarding">) => {
     <View style={styles.container}>
       <Animated.View style={[styles.slider, slider]}>
       {slides.map(({picture}, index) => {
-            const style = useAnimatedStyle(() => ({
-              opacity: interpolate(
-                x.value,
-                [(index - 0.5) * width, index * width, (index + 0.5) * width],
-                [0, 1, 0],
-                Extrapolate.CLAMP
-              ),
-            }));
-            return (
-                <Animated.View key={index} style={[styles.underlay, style]}>
-                    <Image source={picture.src} style={{
-                        width: width - theme.borderRadii.xl,
-                        height: ((width - theme.borderRadii.xl) * picture.height) / picture.width,
-                }} />
-                </Animated.View>
-            );
+        const style = useAnimatedStyle(() => ({
+          opacity: interpolate(
+            x.value,
+            [(index - 0.5) * width, index * width, (index + 0.5) * width],
+            [0, 1, 0],
+            Extrapolate.CLAMP
+          ),
+        }));
+        return (
+          <Animated.View key={index} style={[styles.underlay, style]}>
+            <Image source={picture.src} style={{
+              width: width - theme.borderRadii.xl,
+              height: ((width - theme.borderRadii.xl) * picture.height) / picture.width,
+          }} />
+          </Animated.View>
+        );
         })}
         <Animated.ScrollView
           ref={scroll}

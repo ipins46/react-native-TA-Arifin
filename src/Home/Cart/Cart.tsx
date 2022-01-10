@@ -46,6 +46,7 @@ const Cart = ({ navigation }: HomeNavigationProps<"Cart">) => {
           contentContainerStyle={{ paddingVertical: 50 * aspectRatio }}
           showsVerticalScrollIndicator={false}
         >
+          
           {items.map((item, i) => (
             <Item
               key={item.id}
@@ -56,6 +57,7 @@ const Cart = ({ navigation }: HomeNavigationProps<"Cart">) => {
               item={item}
             />
           ))}
+         
         </ScrollView>
         <Box
           style={{

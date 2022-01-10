@@ -68,7 +68,7 @@ const Checkout = ({ minHeight }: CheckoutProps) => {
               <Text color="background">Change</Text>
             </Box>
           </Box>
-          <LineItem label="Total Items (6)" value={116.997} />
+          <LineItem label="Total Items (3)" value={116.997} />
           <LineItem label="Standard Delivery" value={3.002} />
           <LineItem label="Total Payment" value={119.999} />
         </Box>
@@ -79,7 +79,7 @@ const Checkout = ({ minHeight }: CheckoutProps) => {
           justifyContent="flex-end"
         >
           <Button
-            label="Swipe to Rp.119.999"
+            label="Checkout (3) = Rp.119.999"
             variant="tombol"
             onPress={() => true}
           />

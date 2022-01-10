@@ -12,14 +12,18 @@ const Settings = ({ navigation }: HomeNavigationProps<"Settings">) => {
     <Content>
       <Box backgroundColor="background">
         <Header
-          title="Notifications"
+          title="Settings"
           left={{
             icon: "arrow-left",
             onPress: () => navigation.openDrawer(),
           }}
-          right={{ icon: "share", onPress: () => true }}
+          right={{ icon: "home", onPress: () => navigation.navigate("OutfitIdeas") }}
         />
         <Box padding="m">
+        <Notification
+            title="Mode Dark"
+            description="Change theme to dark"
+          />
           <Notification
             title="Outfit Ideas"
             description="Receive daily notifications"

@@ -40,12 +40,12 @@ const FavoriteOutfits = ({ navigation }: HomeNavigationProps<'FavoriteOutfits'>)
   return (
     <Box flex={1} backgroundColor="background">
       <Header 
-        title="Favorite Outfits"
+        title="Favorite Me"
         left={{ icon: 'menu', onPress: () => navigation.openDrawer() }}
-        right={{ icon: 'shopping-bag', onPress: () => true }}
+        right={{ icon: 'shopping-cart', onPress: () => navigation.navigate("Cart") }}
       />
-      <Box flex={1}>
-        <ScrollView contentContainerStyle={{ paddingHorizontal: theme.spacing.m, paddingBottom: footerHeight }}>
+      <Box flex={1} backgroundColor="background">
+        <ScrollView contentContainerStyle={{ paddingHorizontal: theme.spacing.m, paddingBottom: footerHeight, paddingTop: theme.spacing.m }}>
           <Transitioning.View ref={list} {...{ transition }}>
             <Box flexDirection="row">
               <Box marginRight="m">
@@ -69,7 +69,7 @@ const FavoriteOutfits = ({ navigation }: HomeNavigationProps<'FavoriteOutfits'>)
           right={0} 
           onLayout={({ nativeEvent: { layout: { height }} }) => setFooterHeight(height)}
         >
-        <Footer label="Add more to favorites" onPress={() => {
+        <Footer label="Add to cart" onPress={() => {
           list.current?.animateNextTransition();
           setOutfits(outfits.filter((outfit) => !outfit.selected))
         }} />

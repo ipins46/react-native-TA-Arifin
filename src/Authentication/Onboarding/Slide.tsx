@@ -37,7 +37,7 @@ const Slide = ({ title, right }: SlideProps) => {
   return (
     <View style={styles.container}>
       <View style={[styles.titleContainer, { transform }]}>
-        <Text variant="hero">{title}</Text>
+        <Text variant="hero" color="bawah51">{title}</Text>
       </View>
     </View>
   );

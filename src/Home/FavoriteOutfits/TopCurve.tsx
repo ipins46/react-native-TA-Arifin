@@ -21,7 +21,7 @@ const TopCurve = ({ footerHeight }: TopCurveProps) => {
       }} 
       viewBox="0 0 1 1"
     >
-      <Path d="M 0 1 A 0 0, 0, 0, 0, 1 0 L 1 1" fill={theme.colors.secondary} />
+      <Path d="M 0 1 A 0 0, 0, 0, 0, 1 0 L 1 1" fill={theme.colors.bawah5} />
     </Svg>
   )
 }

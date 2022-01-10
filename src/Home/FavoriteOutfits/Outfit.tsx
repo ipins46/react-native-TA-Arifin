@@ -31,7 +31,7 @@ const Outfit = ({ outfit, width }: OutfitProps) => {
         {selected && (
           <RoundIcon
             name="check"
-            backgroundColor="primary"
+            backgroundColor="bawah4"
             color="background"
             size={24}
           />

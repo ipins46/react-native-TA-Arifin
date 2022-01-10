@@ -9,10 +9,10 @@ import Categories from "./Categories";
 import Card from "./Card";
 
 const cards = [
-  { index: 3, source: require("../../Authentication/assets/2.png") },
-  { index: 2, source: require("../../Authentication/assets/3.png") },
-  { index: 1, source: require("../../Authentication/assets/4.png") },
-  { index: 0, source: require("../../Authentication/assets/5.png") },
+  { index: 3, source: require("../../Authentication/assets/c1.png") },
+  { index: 2, source: require("../../Authentication/assets/c2.png") },
+  { index: 1, source: require("../../Authentication/assets/c3.png") },
+  { index: 0, source: require("../../Authentication/assets/c1.png") },
 ];
 
 const step = 1 / (cards.length - 1);
@@ -26,7 +26,8 @@ const OutfitIdeas = ({ navigation }: HomeNavigationProps<"OutfitIdeas">) => {
       <Header
         title="Outfit Ideas"
         left={{ icon: "menu", onPress: () => navigation.openDrawer() }}
-        right={{ icon: "shopping-bag", onPress: () => true }}
+        right={{ icon: 'shopping-cart', onPress: () => navigation.navigate("Cart") }}
+        // right={{ icon: "shopping-bag", onPress: () => true }}
       />
       <Categories />
       <Box flex={1}>
