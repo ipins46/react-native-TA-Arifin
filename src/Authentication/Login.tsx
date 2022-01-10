@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { TextInput as RNTextInput } from "react-native";
 import { BorderlessButton } from "react-native-gesture-handler";
 import * as Yup from "yup";
@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 // import { useFormik } from "formik";
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { AuthContext } from "../Context/context";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -22,8 +23,12 @@ const LoginSchema = Yup.object().shape({
 
 const Login = ({ navigation }: AuthNavigationProps<"Login">) => {
 
-  const onSubmit = async () => {
-    navigation.navigate('Home')
+  const {sigIn} = useContext(AuthContext);
+
+  const onSubmit = async (data) => {
+    // console.log('data', data);
+    sigIn(data.email, data.password)
+    // navigation.navigate('Home')
   }
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(LoginSchema),

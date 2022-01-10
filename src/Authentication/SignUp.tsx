@@ -9,6 +9,7 @@ import TextInput  from '../components/Form/TextInput';
 import Footer from './components/Footer';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
 
 const SignUpSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -17,7 +18,20 @@ const SignUpSchema = Yup.object().shape({
 });
 
 const SignUp = ({ navigation }: AuthNavigationProps<"SignUp">) => {
-  const onSubmit = async () => {
+  const onSubmit = async (data) => {
+    console.log('data', data)
+    try {
+      const res = await axios.post('http://192.168.43.109:3000/api/register', {
+        first_name: data.firstName,
+        last_name: data.lastName,
+        email: data.email,
+        password: data.password,
+        password_confirm: data.confirmPassword
+      });
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
     navigation.navigate('Login')
   }
   const { control, handleSubmit } = useForm({

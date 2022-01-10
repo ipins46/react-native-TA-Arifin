@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Dimensions, Image } from 'react-native';
 import { useNavigation, DrawerActions, CommonActions } from '@react-navigation/native';
 
@@ -6,6 +6,7 @@ import { Box, Text, useTheme } from '../../components';
 import Header from '../../components/Header';
 import DrawerItem, { DrawerItemProps } from './DrawerItem';
 import { HomeScreenProp } from '../../components/Navigation';
+import { AuthContext } from '../../Context/context';
 
 export const assets = [require("./assets/drawer.png")];
 const { width } = Dimensions.get('window');
@@ -13,20 +14,7 @@ export const DRAWER_WIDTH = width * 0.8;
 const aspectRatio = 769 / 1531;
 const height = DRAWER_WIDTH * aspectRatio;
 
-const items: DrawerItemProps[] = [
-  // { icon: "home", label: "fashion shopping", screen: "HomeItems", color: "primary" },
-  { icon: "home", label: "Outfit Ideas", screen: "OutfitIdeas", color: "primary" },
-  { icon: "heart", label: "Favorite Me", screen: "FavoriteOutfits", color: "drawer1" },
-  { icon: "user", label: "Edit Profile", screen: "EditProfile", color: "drawer2" },
-  { icon: "clock", label: "Transaction History", screen: "TransactionHistory", color: "drawer3" },
-  { icon: "settings", label: "Settings", screen: "Settings", color: "drawer4" },
-  { icon: "log-out", label: "Logout", 
-    onPress: (navigation: any) => navigation.dispatch(CommonActions.reset({
-      index: 0,
-      routes: [{ name: 'Authentication' }]
-    })), color: "secondary", 
-  },
-]
+
 
 const picture = {
   src: require('./assets/wolf.png'),
@@ -35,6 +23,22 @@ const picture = {
 }
 
 const Drawer = () => {
+  const {signOut} = useContext(AuthContext);
+
+  const items: DrawerItemProps[] = [
+    // { icon: "home", label: "fashion shopping", screen: "HomeItems", color: "primary" },
+    { icon: "home", label: "Outfit Ideas", screen: "OutfitIdeas", color: "primary" },
+    { icon: "heart", label: "Favorite Me", screen: "FavoriteOutfits", color: "drawer1" },
+    { icon: "user", label: "Edit Profile", screen: "EditProfile", color: "drawer2" },
+    { icon: "clock", label: "Transaction History", screen: "TransactionHistory", color: "drawer3" },
+    { icon: "settings", label: "Settings", screen: "Settings", color: "drawer4" },
+    { icon: "log-out", label: "Logout", 
+    onPress: (navigation) => {
+      signOut()
+      }, color: "secondary", 
+    },
+  ]
+
   const theme = useTheme();
   const navigation = useNavigation<HomeScreenProp>();
 
